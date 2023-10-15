@@ -1,10 +1,9 @@
 "use client";
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Theme = "dark" | "light";
 interface ThemeContextType {
-  mode: Theme;
-  setMode: React.Dispatch<Theme>;
+  mode: string;
+  setMode: React.Dispatch<string>;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,7 +13,7 @@ export default function ThemeProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [mode, setMode] = useState<Theme>("light");
+  const [mode, setMode] = useState<string>("light");
   const handleThemeChange = () => {
     if (
       localStorage.theme === "dark" ||
