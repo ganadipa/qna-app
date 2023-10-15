@@ -4,5 +4,11 @@
     "standard",
     "plugin:tailwindcss/recommended",
     "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser"
+    }
   ]
 }
