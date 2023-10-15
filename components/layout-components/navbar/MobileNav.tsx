@@ -68,7 +68,7 @@ const MobileNav = () => {
       >
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={"/assets/images/site-logo.svg"}
+            src={"/assets/images/site-logo.png"}
             width={23}
             height={23}
             alt=""
