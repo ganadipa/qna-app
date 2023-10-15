@@ -37,7 +37,7 @@ const NavContent = () => {
                 alt={item.label}
                 width={20}
                 height={20}
-                className={`${isActive ? "invert-colors" : ""}`}
+                className={`${isActive ? "" : "invert-colors"}`}
               />
               <p className={`${isActive ? "base-bold" : "base-medium"}`}>
                 {item.label}
@@ -68,7 +68,7 @@ const MobileNav = () => {
       >
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src={"/assets/images/site-logo.svg"}
+            src={"/assets/images/site-logo.png"}
             width={23}
             height={23}
             alt=""
