@@ -1,9 +1,85 @@
+import QuestionCard from "@/components/card/QuestionCard";
 import HomeFilters from "@/components/home/HomeFilters";
 import Filter from "@/components/search/Filter";
 import LocalSearch from "@/components/search/LocalSearch";
+import NoResult from "@/components/shared/NoResult";
 import { Button } from "@/components/ui/button";
 import { HomePageFilters } from "@/constants/filters";
 import Link from "next/link";
+
+interface QTYPE {
+  _id: string
+  title: string
+  tags: 
+}
+
+const QUESTIONS = [
+  // {
+  //   _id: 1,
+  //   title: "How to get an Internship?",
+  //   tags: [
+  //     { _id: 1, name: "Cool" },
+  //     { _id: 2, name: "Rich" },
+  //   ],
+  //   author: "Nyoman Ganadipa Narayana",
+  //   upvotes: 10,
+  //   views: 100,
+  //   answers: 2,
+  //   createdAt: "2021-09-01T12:00:00.000Z",
+  // },
+  // {
+  //   _id: 2,
+  //   title: "How to get an Internship?",
+  //   tags: [
+  //     { _id: 1, name: "Cool" },
+  //     { _id: 2, name: "Rich" },
+  //   ],
+  //   author: "Nyoman Ganadipa Narayana",
+  //   upvotes: 10,
+  //   views: 100,
+  //   answers: 2,
+  //   createdAt: "2021-09-01T12:00:00.000Z",
+  // },
+  // {
+  //   _id: 3,
+  //   title: "How to get an Internship?",
+  //   tags: [
+  //     { _id: 1, name: "Cool" },
+  //     { _id: 2, name: "Rich" },
+  //   ],
+  //   author: "Nyoman Ganadipa Narayana",
+  //   upvotes: 10,
+  //   views: 100,
+  //   answers: 2,
+  //   createdAt: "2021-09-01T12:00:00.000Z",
+  // },
+  // {
+  //   _id: 4,
+  //   title: "How to get an Internship?",
+  //   tags: [
+  //     { _id: 1, name: "Cool" },
+  //     { _id: 2, name: "Rich" },
+  //   ],
+  //   author: "Nyoman Ganadipa Narayana",
+  //   upvotes: 10,
+  //   views: 100,
+  //   answers: 2,
+  //   createdAt: "2021-09-01T12:00:00.000Z",
+  // },
+  // {
+  //   _id: 5,
+  //   title: "How to get an Internship?",
+  //   tags: [
+  //     { _id: 1, name: "Cool" },
+  //     { _id: 2, name: "Rich" },
+  //   ],
+  //   author: "Nyoman Ganadipa Narayana",
+  //   upvotes: 10,
+  //   views: 100,
+  //   answers: 2,
+  //   createdAt: "2021-09-01T12:00:00.000Z",
+  // },
+];
 
 export default function Home() {
   return (
@@ -33,6 +109,31 @@ export default function Home() {
       </div>
 
       <HomeFilters />
+
+      <div>
+        {QUESTIONS.length > 0 ? (
+          QUESTIONS.map((question) => (
+            <QuestionCard
+              key={question._id}
+              _id={question._id}
+              title={question.title}
+              tags={question.tags}
+              author={question.author}
+              upvotes={question.upvotes}
+              views={question.views}
+              answers={question.answers}
+              createdAt={question.createdAt}
+            />
+          ))
+        ) : (
+          <NoResult
+            title={"There's no question to show"}
+            description="Break the silence by asking a question and kicksart the discussion! Get Involved!"
+            link="/ask-question"
+            linkTitle="Ask a question"
+          />
+        )}
+      </div>
     </>
   );
 }
